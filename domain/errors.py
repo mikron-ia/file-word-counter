@@ -4,3 +4,7 @@ class ConfigError(Exception):
 
 class IncorrectPath(Exception):
     pass
+
+
+class UnrecognizedType(Exception):
+    pass
