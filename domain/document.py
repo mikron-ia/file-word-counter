@@ -1,6 +1,7 @@
 from domain.processor_odt import ProcessorOdt
 from domain.processor_docx import ProcessorDocx
 from domain.processor_txt import ProcessorTxt
+from domain.processor_md import ProcessorMd
 from domain.processor_none import ProcessorNone
 from os import path
 
@@ -35,7 +36,7 @@ class Document:
             'docx': ProcessorDocx,
             'odt': ProcessorOdt,
             'txt': ProcessorTxt,
-            'md': ProcessorTxt,
+            'md': ProcessorMd,
         }.get(self.type, ProcessorNone)
 
     def __load_file_to_processor(self):
