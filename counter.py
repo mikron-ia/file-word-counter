@@ -8,7 +8,9 @@ from domain.document import Document
 if __name__ == "__main__":
     try:
         if len(sys.argv) < 2:
-            raise ConfigError("Usage: counter path [filename]")
+            raise ConfigError(
+                "Usage:\n\nTo scan for all files in path: counter path\nTo scan a single file: counter path filename"
+            )
         path = str(sys.argv[1])
 
         filename = None
@@ -18,9 +20,10 @@ if __name__ == "__main__":
         docs = []
 
         if filename:  # single file
+            print("Single file mode initiated for", filename, "at", path)
             docs.append(Document(filename, path))
         else:  # all files under the path
-            print("Initiating scan of", path)
+            print("Multiple file mode initiated for path", path)
             walker = Walker(path)
             walker.walk()
             # todo: docs.append()
@@ -33,7 +36,10 @@ if __name__ == "__main__":
 
         # todo Actual saving to database
         print("Data saved")
+    except ConfigError as e:
+        print(str(e))
+        exit(1)
     except Exception as e:
         print(str(e))
         traceback.print_exc()  # todo Configurable error output?
-        exit()
+        exit(1)
