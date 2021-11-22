@@ -1,9 +1,10 @@
-from domain.processor_odt import ProcessorOdt
+from os import path
+
 from domain.processor_docx import ProcessorDocx
-from domain.processor_txt import ProcessorTxt
 from domain.processor_md import ProcessorMd
 from domain.processor_none import ProcessorNone
-from os import path
+from domain.processor_odt import ProcessorOdt
+from domain.processor_txt import ProcessorTxt
 
 
 class Document:
