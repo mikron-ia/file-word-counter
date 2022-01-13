@@ -32,7 +32,7 @@ if __name__ == "__main__":
         for doc in docs:
             # todo: Database retrieval for comparison
             words = doc.words
-            print(doc.name + ":", str(words), "word" + ("" if words == 1 else "s"))
+            print(doc.file_name + ":", str(words), "word" + ("" if words == 1 else "s"))
 
         # todo Actual saving to database
         print("Data saved")
