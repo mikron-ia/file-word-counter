@@ -6,16 +6,16 @@ A simple word counter for more complex text processor files.
 
 On command (be it manual or croned):
 
-1. Retrieve list of known files from a database
-1. Crawl the directory structure from a given starting point
-1. Count words in all supported files found in the directory
-1. Update (or create) records in a database, keep history
-1. Display list of changed files and sum of the words
+1. Retrieve list of known files from a database - _waiting for database support_
+2. Crawl the directory structure from a given starting point - _in progress_
+3. Count words in all supported files found in the directory - _in progress_
+4. Update (or create) records in a database, keep history - _waiting for database support_
+5. Display list of changed files and sum of the words - _in progress_
 
 ## Input
 
-* Directory name (MVP)
-* Specific files (optional)
+* Directory name - _todo_
+* Specific files
 
 ## Output
 
@@ -24,11 +24,12 @@ On command (be it manual or croned):
 
 ## Assumptions
 
-* Content is irrelevant, only the numbers count; if a file lost 50 words but gained 150, the final result is to be 100
+* The content is irrelevant, only the numbers count; if a file lost 50 words but gained 150, the final result is to be
+  +100
 
 ## Supported files
 
 * txt
 * md
-* docx (planned)
-* odt (planned)
+* docx - _todo_
+* odt - _todo_
