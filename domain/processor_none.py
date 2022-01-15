@@ -12,6 +12,3 @@ class ProcessorNone(Processor):
 
     def load_file(self):
         raise UnrecognizedType
-
-    def unpack(self):
-        raise UnrecognizedType

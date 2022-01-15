@@ -7,12 +7,9 @@ class ProcessorMd(Processor):
 
     @property
     def word_count(self):
-        purged_text = self.data.replace('#', '')
+        purged_text = self.content.replace('#', '')
         return len(purged_text.split())
 
     def load_file(self):
         file = open(self.file_location, "r")
         return file.read()
-
-    def unpack(self):
-        return self.file

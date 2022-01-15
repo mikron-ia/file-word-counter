@@ -7,11 +7,8 @@ class ProcessorTxt(Processor):
 
     @property
     def word_count(self):
-        return len(self.data.split())
+        return len(self.content.split())
 
     def load_file(self):
         file = open(self.file_location, "r")
         return file.read()
-
-    def unpack(self):
-        return self.file
