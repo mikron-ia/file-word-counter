@@ -10,5 +10,5 @@ class ProcessorNone(Processor):
     def word_count(self):
         raise UnrecognizedType
 
-    def load_file(self):
+    def load_content_from_file(self):
         raise UnrecognizedType

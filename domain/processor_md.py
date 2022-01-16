@@ -10,6 +10,6 @@ class ProcessorMd(Processor):
         purged_text = self.content.replace('#', '')
         return len(purged_text.split())
 
-    def load_file(self):
+    def load_content_from_file(self):
         file = open(self.file_location, "r")
         return file.read()

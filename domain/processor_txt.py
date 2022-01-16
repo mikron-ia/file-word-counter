@@ -9,6 +9,6 @@ class ProcessorTxt(Processor):
     def word_count(self):
         return len(self.content.split())
 
-    def load_file(self):
+    def load_content_from_file(self):
         file = open(self.file_location, "r")
         return file.read()
