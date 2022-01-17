@@ -32,3 +32,20 @@ On command (be it manual or croned):
 * md
 * docx
 * odt
+
+## ToDo
+
+1. Linking walking the directories with processing
+2. Better type recognition - `docx` vs. `doc`, accepting `dot`s, etc.
+3. Database handling
+    1. Creating data structures
+    2. Data retrieval
+    3. Data saving
+4. Incorrect filename handling
+5. Counting algorithms verification - current results disagree with both Libre Office as with Microsoft Office
+   * Note that LO disagrees with MO as well
+6. Unit testing
+   1. Mechanism
+   2. Coverage for `processor` classes
+7. Exchangeable database interface
+   * May start with SQLite
