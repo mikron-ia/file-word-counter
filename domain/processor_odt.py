@@ -1,3 +1,5 @@
+from functools import reduce
+
 from odf import text, teletype
 from odf.opendocument import load as load_odt
 
@@ -10,12 +12,8 @@ class ProcessorOdt(Processor):
 
     @property
     def word_count(self):
-        count = 0
         rows = self.content.getElementsByType(text.P)
-        for row in rows:
-            count = count + len(teletype.extractText(row).split())  # todo Improve
-
-        return count
+        return reduce(lambda counter, row: counter + len(teletype.extractText(row).split()), rows, 0)
 
     def load_content_from_file(self):
         return load_odt(self.file_location)

@@ -24,12 +24,11 @@ On command (be it manual or croned):
 
 ## Assumptions
 
-* The content is irrelevant, only the numbers count; if a file lost 50 words but gained 150, the final result is to be
-  +100
+* The content is irrelevant; if a file lost 50 words but gained 150, the final result is to be increase by 100
 
 ## Supported files
 
 * txt
 * md
-* docx - _todo_
-* odt - _todo_
+* docx
+* odt
