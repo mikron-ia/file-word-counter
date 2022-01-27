@@ -9,7 +9,8 @@ if __name__ == "__main__":
     try:
         if len(sys.argv) < 2:
             raise ConfigError(
-                "Usage:\n\nTo scan for all files in path: counter path\nTo scan a single file: counter path filename"
+                "Usage: py counter.py <path> [<filename>]\n\n"
+                "Omitting <filename> will scan all files in the path."
             )
         path = str(sys.argv[1])
 
