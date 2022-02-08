@@ -1,3 +1,5 @@
+from charset_normalizer import from_path
+
 from domain.processor import Processor
 
 
@@ -11,5 +13,4 @@ class ProcessorMd(Processor):
         return len(purged_text.split())
 
     def load_content_from_file(self):
-        file = open(self.file_location, "r")
-        return file.read()
+        return str(from_path(self.file_location).best())
