@@ -1,12 +1,17 @@
 version: "2"
 
-engines:
-  plugins:
-    pylint:
-      enabled: true
-      checks:
-        invalid-name:
-          enabled: false # disabled due to pylint mistaking variables for consts
+plugins:
+  bandit:
+    enabled: true
+  pep8:
+    enabled: true
+  pylint:
+    enabled: true
+    checks:
+      invalid-name:
+        enabled: false # disabled due to pylint mistaking variables for consts
+  sonar-python:
+    enabled: true
 
 exclude_patterns:
   - .git/**/*
