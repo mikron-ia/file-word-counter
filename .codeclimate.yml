@@ -1,8 +1,12 @@
 version: "2"
 
-plugins:
-  pylint:
-    enabled: true
+engines:
+  plugins:
+    pylint:
+      enabled: true
+      checks:
+        invalid-name:
+          enabled: false # disabled due to pylint mistaking variables for consts
 
-exclude_paths:
+exclude_patterns:
   - .git/**/*
