@@ -13,7 +13,11 @@ class ProcessorOdt(Processor):
     @property
     def word_count(self):
         rows = self.content.getElementsByType(text.P)
-        return reduce(lambda counter, row: counter + len(teletype.extractText(row).split()), rows, 0)
+        return reduce(
+            lambda counter, row: counter + len(teletype.extractText(row).split()),
+            rows,
+            0
+        )
 
     def load_content_from_file(self):
         return load_odt(self.file_location)

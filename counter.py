@@ -39,8 +39,8 @@ if __name__ == "__main__":
         print("Data saved")
     except ConfigError as e:
         print(str(e))
-        exit(1)
+        sys.exit(1)
     except Exception as e:
         print(str(e))
         traceback.print_exc()  # todo Configurable error output?
-        exit(1)
+        sys.exit(1)
