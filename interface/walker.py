@@ -1,11 +1,16 @@
 import os
 
+from domain.document import Document
+
 
 class Walker:
     def __init__(self, path: str):
         self.path = path
 
-    def walk(self):
+    def walk(self) -> list:
+        docs = []
         for (root, directories, files) in os.walk(self.path, topdown=True):
-            print(files)
-            # todo for useful types of file: check, open, count
+            for filename in files:  # todo limit to recognised files
+                docs.append(Document(filename, self.path))
+
+        return docs
