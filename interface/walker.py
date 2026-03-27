@@ -11,6 +11,6 @@ class Walker:
         docs = []
         for (root, directories, files) in os.walk(self.path, topdown=True):
             for filename in files:  # todo limit to recognised files
-                docs.append(Document(filename, self.path))
+                docs.append(Document(self.path + '/' + filename))
 
         return docs

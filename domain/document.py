@@ -8,15 +8,14 @@ from domain.processor_txt import ProcessorTxt
 
 
 class Document:
-    def __init__(self, file_name, file_path):
-        self.file_name = file_name
-        self.file_path = file_path
+    def __init__(self, file):
+        self.file = file
         self.processor_class = self.__get_processor()
         self.processor = self.__load_file_to_processor()
 
     @property
     def type(self):  # todo Verify the format
-        extension = path.splitext(self.file_name)[-1]
+        extension = path.splitext(self.file)[-1]
 
         if not extension:
             return None
@@ -36,4 +35,4 @@ class Document:
         }.get(self.type, ProcessorNone)
 
     def __load_file_to_processor(self):
-        return self.processor_class(self.file_path + "/" + self.file_name)
+        return self.processor_class(self.file)

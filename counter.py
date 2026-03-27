@@ -1,3 +1,4 @@
+import os.path
 import sys
 import traceback
 
@@ -9,21 +10,17 @@ if __name__ == "__main__":
     try:
         if len(sys.argv) < 2:
             raise ConfigError(
-                "Usage: py counter.py <path> [<filename>]\n\n"
-                "Omitting <filename> will scan all files in the path."
+                "Usage: py counter.py <target>\n\n"
+                "Providing a directory will scan all files in it."
             )
-        path = str(sys.argv[1])
+        target = str(sys.argv[1])
 
-        filename = None
-        if len(sys.argv) > 2:
-            filename = str(sys.argv[2])
-
-        if filename:  # single file
-            print("Single file mode initiated for", filename, "at", path)
-            docs = [Document(filename, path)]
+        if os.path.isfile(target):  # single file
+            print("Single file mode initiated for", target)
+            docs = [Document(target)]
         else:  # all files under the path
-            print("Multiple file mode initiated for path", path)
-            walker = Walker(path)
+            print("Multiple file mode initiated for path", target)
+            walker = Walker(target)
             docs = walker.walk()
             print("Files found: ", len(docs))
 
@@ -31,10 +28,11 @@ if __name__ == "__main__":
         for doc in docs:
             # todo: Database retrieval for comparison
             words = doc.words
-            print(doc.file_name + ":", str(words), "word" + ("" if words == 1 else "s"))
+            print(doc.file + ":", str(words), "word" + ("" if words == 1 else "s"))
 
         # todo Actual saving to database
         print("Data saved")
+        sys.exit(0)
     except ConfigError as e:
         print(str(e))
         sys.exit(1)
